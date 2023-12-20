@@ -1,0 +1,41 @@
+-- Selezionare cognome e nome tutti gli insegnanti, ordinati per cognome e poi per nome in ordine alfabetico (100)
+select surname, name
+from teachers t 
+order by surname, name 
+
+-- Selezionare tutti gli insegnamenti (courses) che valgono almeno 12 crediti (cfu) (375)
+select *
+from courses
+where cfu >= 12;
+
+-- Selezionare tutti gli studenti nati nel 1990 (160)
+select *
+from students
+where year (date_of_birth) = 1990;
+
+-- Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
+select *
+from courses
+where year = 1
+and period = 'I semestre'
+
+-- Da quanti dipartimenti è composta l’università?
+select count(id)
+from departments
+
+-- Contare tutti gli insegnanti il cui cognome termina con la “E” (8)
+select *
+from teachers
+where surname like '%e';
+
+-- Selezionare nome, cognome e codice fiscale di tutti gli studenti iscritti al Corso di Laurea in Economia, in ordine alfabetico
+select name, surname, fiscal_code
+from students
+where degree_id = '53';
+order by name, surname, fiscal_code
+
+-- Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze
+select *
+from degrees
+where department_id = '7'
+and `level` = 'magistrale'
